@@ -10,7 +10,7 @@ function ChangePassword() {
   const changePassword = () => {
     axios
       .put(
-        "http://localhost:3001/auth/changepassword",
+        "https://onlyworking-production.up.railway.app/auth/changepassword",
         { oldPassword: oldPassword, newPassword: newPassword },
         {
           headers: {

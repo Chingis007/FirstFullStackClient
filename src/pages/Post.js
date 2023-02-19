@@ -13,19 +13,23 @@ function Post() {
   const { authState } = useContext(AuthContext);
 
   useEffect(() => {
-    axious.get(`http://localhost:3001/posts/byId/${id}`).then((response) => {
-      setPostObject(response.data);
-    });
+    axious
+      .get(`https://onlyworking-production.up.railway.app/posts/byId/${id}`)
+      .then((response) => {
+        setPostObject(response.data);
+      });
 
-    axious.get(`http://localhost:3001/comments/${id}`).then((response) => {
-      setComments(response.data);
-    });
+    axious
+      .get(`https://onlyworking-production.up.railway.app/comments/${id}`)
+      .then((response) => {
+        setComments(response.data);
+      });
   }, []);
 
   const addComment = (data) => {
     axious
       .post(
-        "http://localhost:3001/comments",
+        "https://onlyworking-production.up.railway.app/comments",
         { commentBody: newComment, PostId: id },
         {
           headers: {
@@ -38,7 +42,7 @@ function Post() {
           alert(response.data.error);
         } else {
           axious
-            .get(`http://localhost:3001/comments/${id}`)
+            .get(`https://onlyworking-production.up.railway.app/comments/${id}`)
             .then((response) => {
               setComments(response.data);
             });
@@ -54,7 +58,7 @@ function Post() {
 
   const deleteComment = (id) => {
     axious
-      .delete(`http://localhost:3001/comments/${id}`, {
+      .delete(`https://onlyworking-production.up.railway.app/comments/${id}`, {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
       .then(() => {
@@ -68,7 +72,7 @@ function Post() {
 
   const deletePost = () => {
     axious
-      .delete(`http://localhost:3001/posts/${id}`, {
+      .delete(`https://onlyworking-production.up.railway.app/posts/${id}`, {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
       .then(() => {
@@ -79,7 +83,7 @@ function Post() {
     if (option === "title") {
       let newTitle = prompt("Enter new Title:");
       axious.put(
-        "http://localhost:3001/posts/title",
+        "https://onlyworking-production.up.railway.app/posts/title",
         { newTitle: newTitle, id: id },
         { headers: { accessToken: localStorage.getItem("accessToken") } }
       );
@@ -87,7 +91,7 @@ function Post() {
     } else {
       let newPostText = prompt("Enter new Text:");
       axious.put(
-        "http://localhost:3001/posts/postText",
+        "https://onlyworking-production.up.railway.app/posts/postText",
         { newPostText: newPostText, id: id },
         { headers: { accessToken: localStorage.getItem("accessToken") } }
       );

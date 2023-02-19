@@ -18,7 +18,7 @@ function CreatePost() {
   }, []);
   const onSubmit = (data) => {
     axious
-      .post("http://localhost:3001/posts", data, {
+      .post("https://onlyworking-production.up.railway.app/posts", data, {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
       .then((response) => {

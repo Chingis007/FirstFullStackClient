@@ -14,7 +14,7 @@ function Home() {
       navigate("/login");
     } else {
       axious
-        .get("http://localhost:3001/posts", {
+        .get("https://onlyworking-production.up.railway.app/posts", {
           headers: {
             accessToken: localStorage.getItem("accessToken"),
           },
@@ -32,7 +32,7 @@ function Home() {
   const likeAPost = (postId) => {
     axious
       .post(
-        "http://localhost:3001/likes",
+        "https://onlyworking-production.up.railway.app/likes",
         { PostId: postId },
         {
           headers: {
