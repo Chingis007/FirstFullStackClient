@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("https://onlyworking-production.up.railway.app/auth/auth", {
+      .get("https://firstfullstackapi-production.up.railway.app/auth/auth", {
         headers: {
           accessToken: localStorage.getItem("accessToken"),
         },

@@ -12,12 +12,16 @@ function Profile() {
 
   useEffect(() => {
     axios
-      .get(`https://onlyworking-production.up.railway.app/auth/basicinfo/${id}`)
+      .get(
+        `https://firstfullstackapi-production.up.railway.app/auth/basicinfo/${id}`
+      )
       .then((response) => {
         setUsername(response.data.username);
       });
     axios
-      .get(`https://onlyworking-production.up.railway.app/posts/byuserId/${id}`)
+      .get(
+        `https://firstfullstackapi-production.up.railway.app/posts/byuserId/${id}`
+      )
       .then((response) => {
         setListOfPosts(response.data);
       });

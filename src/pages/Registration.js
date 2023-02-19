@@ -14,7 +14,7 @@ function Registration() {
 
   const onSubmit = (data) => {
     axious
-      .post("https://onlyworking-production.up.railway.app/auth", data)
+      .post("https://firstfullstackapi-production.up.railway.app/auth", data)
       .then((response) => {
         navigate("/");
       });

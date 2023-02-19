@@ -14,7 +14,7 @@ function Home() {
       navigate("/login");
     } else {
       axious
-        .get("https://onlyworking-production.up.railway.app/posts", {
+        .get("https://firstfullstackapi-production.up.railway.app/posts", {
           headers: {
             accessToken: localStorage.getItem("accessToken"),
           },
@@ -32,7 +32,7 @@ function Home() {
   const likeAPost = (postId) => {
     axious
       .post(
-        "https://onlyworking-production.up.railway.app/likes",
+        "https://firstfullstackapi-production.up.railway.app/likes",
         { PostId: postId },
         {
           headers: {

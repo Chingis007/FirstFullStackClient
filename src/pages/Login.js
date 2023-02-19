@@ -11,7 +11,10 @@ function Login() {
   const login = () => {
     const data = { username: username, password: password };
     axios
-      .post("https://onlyworking-production.up.railway.app/auth/login", data)
+      .post(
+        "https://firstfullstackapi-production.up.railway.app/auth/login",
+        data
+      )
       .then((response) => {
         if (response.data.error) alert(response.data.error);
         else {

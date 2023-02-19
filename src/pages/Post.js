@@ -14,13 +14,15 @@ function Post() {
 
   useEffect(() => {
     axious
-      .get(`https://onlyworking-production.up.railway.app/posts/byId/${id}`)
+      .get(
+        `https://firstfullstackapi-production.up.railway.app/posts/byId/${id}`
+      )
       .then((response) => {
         setPostObject(response.data);
       });
 
     axious
-      .get(`https://onlyworking-production.up.railway.app/comments/${id}`)
+      .get(`https://firstfullstackapi-production.up.railway.app/comments/${id}`)
       .then((response) => {
         setComments(response.data);
       });
@@ -29,7 +31,7 @@ function Post() {
   const addComment = (data) => {
     axious
       .post(
-        "https://onlyworking-production.up.railway.app/comments",
+        "https://firstfullstackapi-production.up.railway.app/comments",
         { commentBody: newComment, PostId: id },
         {
           headers: {
@@ -42,7 +44,9 @@ function Post() {
           alert(response.data.error);
         } else {
           axious
-            .get(`https://onlyworking-production.up.railway.app/comments/${id}`)
+            .get(
+              `https://firstfullstackapi-production.up.railway.app/comments/${id}`
+            )
             .then((response) => {
               setComments(response.data);
             });
@@ -58,9 +62,12 @@ function Post() {
 
   const deleteComment = (id) => {
     axious
-      .delete(`https://onlyworking-production.up.railway.app/comments/${id}`, {
-        headers: { accessToken: localStorage.getItem("accessToken") },
-      })
+      .delete(
+        `https://firstfullstackapi-production.up.railway.app/comments/${id}`,
+        {
+          headers: { accessToken: localStorage.getItem("accessToken") },
+        }
+      )
       .then(() => {
         setComments(
           comments.filter((val) => {
@@ -72,9 +79,12 @@ function Post() {
 
   const deletePost = () => {
     axious
-      .delete(`https://onlyworking-production.up.railway.app/posts/${id}`, {
-        headers: { accessToken: localStorage.getItem("accessToken") },
-      })
+      .delete(
+        `https://firstfullstackapi-production.up.railway.app/posts/${id}`,
+        {
+          headers: { accessToken: localStorage.getItem("accessToken") },
+        }
+      )
       .then(() => {
         navigate("/");
       });
@@ -83,7 +93,7 @@ function Post() {
     if (option === "title") {
       let newTitle = prompt("Enter new Title:");
       axious.put(
-        "https://onlyworking-production.up.railway.app/posts/title",
+        "https://firstfullstackapi-production.up.railway.app/posts/title",
         { newTitle: newTitle, id: id },
         { headers: { accessToken: localStorage.getItem("accessToken") } }
       );
@@ -91,7 +101,7 @@ function Post() {
     } else {
       let newPostText = prompt("Enter new Text:");
       axious.put(
-        "https://onlyworking-production.up.railway.app/posts/postText",
+        "https://firstfullstackapi-production.up.railway.app/posts/postText",
         { newPostText: newPostText, id: id },
         { headers: { accessToken: localStorage.getItem("accessToken") } }
       );

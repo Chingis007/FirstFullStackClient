@@ -10,7 +10,7 @@ function ChangePassword() {
   const changePassword = () => {
     axios
       .put(
-        "https://onlyworking-production.up.railway.app/auth/changepassword",
+        "https://firstfullstackapi-production.up.railway.app/auth/changepassword",
         { oldPassword: oldPassword, newPassword: newPassword },
         {
           headers: {
